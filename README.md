@@ -40,9 +40,9 @@ Finally add this to the Gemfile:
 
 ### Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
+If the Ruby gem is hosted at a git repository: https://github.com/kyohah/kabustation_client-ruby, then add the following in the Gemfile:
 
-    gem 'kabustation_client', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+    gem 'kabustation_client', :git => 'https://github.com/kyohah/kabustation_client-ruby'
 
 ### Include the Ruby code directly
 
@@ -55,6 +55,52 @@ ruby -Ilib script.rb
 ## Getting Started
 
 Please follow the [installation](#installation) procedure and then run the following code:
+
+## Windowsのnginxの設定
+windows マシンで rubyを動かすなら不要
+
+```nginx.conf
+worker_processes  1;
+events {
+    worker_connections  1024;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    map $http_upgrade $connection_upgrade { 
+    default upgrade;
+    ''      close;
+    } 
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        proxy_http_version 1.1;
+        proxy_set_header Host localhost;
+        proxy_set_header Upgrade $http_upgrade; 
+        proxy_set_header Connection $connection_upgrade;
+
+        location /production/ { # 本番用
+            proxy_pass   http://127.0.0.1:18080/kabusapi;
+        }
+
+        location /development/ { # 検証用
+            proxy_pass   http://127.0.0.1:18081/kabusapi;
+        }
+    }
+}
+```
+```ruby
+KabustationClient.configure do |config|
+  config.host = ENV.fetch('KABUSTATION_HOST', 'localhost')
+  config.base_path = 'production'
+end
+```
+
 
 ```ruby
 # Load the gem
