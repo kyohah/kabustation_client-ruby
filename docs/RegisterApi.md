@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost:18080/kabusapi*
 
 ## register_put
 
-> <RegistSuccess> register_put(x_api_key, request_register)
+> <RegistSuccess> register_put(request_register)
 
 銘柄登録
 
@@ -22,14 +22,20 @@ PUSH配信する銘柄を登録します。<br> API登録銘柄リストを開�
 ```ruby
 require 'time'
 require 'kabustation_client'
+# setup authorization
+KabustationClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
 
 api_instance = KabustationClient::RegisterApi.new
-x_api_key = 'x_api_key_example' # String | トークン発行メソッドで取得した文字列
 request_register = KabustationClient::RequestRegister.new # RequestRegister | 登録する銘柄のリスト
 
 begin
   # 銘柄登録
-  result = api_instance.register_put(x_api_key, request_register)
+  result = api_instance.register_put(request_register)
   p result
 rescue KabustationClient::ApiError => e
   puts "Error when calling RegisterApi->register_put: #{e}"
@@ -40,12 +46,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistSuccess>, Integer, Hash)> register_put_with_http_info(x_api_key, request_register)
+> <Array(<RegistSuccess>, Integer, Hash)> register_put_with_http_info(request_register)
 
 ```ruby
 begin
   # 銘柄登録
-  data, status_code, headers = api_instance.register_put_with_http_info(x_api_key, request_register)
+  data, status_code, headers = api_instance.register_put_with_http_info(request_register)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RegistSuccess>
@@ -58,7 +64,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **x_api_key** | **String** | トークン発行メソッドで取得した文字列 |  |
 | **request_register** | [**RequestRegister**](RequestRegister.md) | 登録する銘柄のリスト |  |
 
 ### Return type
@@ -67,7 +72,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -77,7 +82,7 @@ No authorization required
 
 ## unregister_all_put
 
-> <UnregisterAllSuccess> unregister_all_put(x_api_key)
+> <UnregisterAllSuccess> unregister_all_put
 
 銘柄登録全解除
 
@@ -88,13 +93,19 @@ API登録銘柄リストに登録されている銘柄をすべて解除しま�
 ```ruby
 require 'time'
 require 'kabustation_client'
+# setup authorization
+KabustationClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
 
 api_instance = KabustationClient::RegisterApi.new
-x_api_key = 'x_api_key_example' # String | トークン発行メソッドで取得した文字列
 
 begin
   # 銘柄登録全解除
-  result = api_instance.unregister_all_put(x_api_key)
+  result = api_instance.unregister_all_put
   p result
 rescue KabustationClient::ApiError => e
   puts "Error when calling RegisterApi->unregister_all_put: #{e}"
@@ -105,12 +116,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UnregisterAllSuccess>, Integer, Hash)> unregister_all_put_with_http_info(x_api_key)
+> <Array(<UnregisterAllSuccess>, Integer, Hash)> unregister_all_put_with_http_info
 
 ```ruby
 begin
   # 銘柄登録全解除
-  data, status_code, headers = api_instance.unregister_all_put_with_http_info(x_api_key)
+  data, status_code, headers = api_instance.unregister_all_put_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UnregisterAllSuccess>
@@ -121,9 +132,7 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **x_api_key** | **String** | トークン発行メソッドで取得した文字列 |  |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -131,7 +140,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -141,7 +150,7 @@ No authorization required
 
 ## unregister_put
 
-> <RegistSuccess> unregister_put(x_api_key, request_unregister)
+> <RegistSuccess> unregister_put(request_unregister)
 
 銘柄登録解除
 
@@ -152,14 +161,20 @@ API登録銘柄リストに登録されている銘柄を解除します
 ```ruby
 require 'time'
 require 'kabustation_client'
+# setup authorization
+KabustationClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
 
 api_instance = KabustationClient::RegisterApi.new
-x_api_key = 'x_api_key_example' # String | トークン発行メソッドで取得した文字列
 request_unregister = KabustationClient::RequestUnregister.new # RequestUnregister | 登録解除する銘柄のリスト
 
 begin
   # 銘柄登録解除
-  result = api_instance.unregister_put(x_api_key, request_unregister)
+  result = api_instance.unregister_put(request_unregister)
   p result
 rescue KabustationClient::ApiError => e
   puts "Error when calling RegisterApi->unregister_put: #{e}"
@@ -170,12 +185,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistSuccess>, Integer, Hash)> unregister_put_with_http_info(x_api_key, request_unregister)
+> <Array(<RegistSuccess>, Integer, Hash)> unregister_put_with_http_info(request_unregister)
 
 ```ruby
 begin
   # 銘柄登録解除
-  data, status_code, headers = api_instance.unregister_put_with_http_info(x_api_key, request_unregister)
+  data, status_code, headers = api_instance.unregister_put_with_http_info(request_unregister)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RegistSuccess>
@@ -188,7 +203,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **x_api_key** | **String** | トークン発行メソッドで取得した文字列 |  |
 | **request_unregister** | [**RequestUnregister**](RequestUnregister.md) | 登録解除する銘柄のリスト |  |
 
 ### Return type
@@ -197,7 +211,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

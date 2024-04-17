@@ -11,5 +11,5 @@ Generator version: 7.4.0
 =end
 
 module KabustationClient
-  VERSION = '1.0.0'
+  VERSION = '1.1.0'
 end

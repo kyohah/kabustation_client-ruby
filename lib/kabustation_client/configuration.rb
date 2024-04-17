@@ -234,6 +234,13 @@ module KabustationClient
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
+        'ApiKeyAuth' =>
+          {
+            type: 'api_key',
+            in: 'header',
+            key: 'X-API-Key',
+            value: api_key_with_prefix('ApiKeyAuth')
+          },
       }
     end
 

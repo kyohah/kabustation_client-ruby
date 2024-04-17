@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost:18080/kabusapi*
 
 ## cancelorder_put
 
-> <OrderSuccess> cancelorder_put(x_api_key, request_cancel_order)
+> <OrderSuccess> cancelorder_put(request_cancel_order)
 
 注文取消
 
@@ -23,14 +23,20 @@ All URIs are relative to *http://localhost:18080/kabusapi*
 ```ruby
 require 'time'
 require 'kabustation_client'
+# setup authorization
+KabustationClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
 
 api_instance = KabustationClient::OrderApi.new
-x_api_key = 'x_api_key_example' # String | トークン発行メソッドで取得した文字列
 request_cancel_order = KabustationClient::RequestCancelOrder.new({order_id: '20200529A01N06848002', password: 'xxxxxx'}) # RequestCancelOrder | 
 
 begin
   # 注文取消
-  result = api_instance.cancelorder_put(x_api_key, request_cancel_order)
+  result = api_instance.cancelorder_put(request_cancel_order)
   p result
 rescue KabustationClient::ApiError => e
   puts "Error when calling OrderApi->cancelorder_put: #{e}"
@@ -41,12 +47,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OrderSuccess>, Integer, Hash)> cancelorder_put_with_http_info(x_api_key, request_cancel_order)
+> <Array(<OrderSuccess>, Integer, Hash)> cancelorder_put_with_http_info(request_cancel_order)
 
 ```ruby
 begin
   # 注文取消
-  data, status_code, headers = api_instance.cancelorder_put_with_http_info(x_api_key, request_cancel_order)
+  data, status_code, headers = api_instance.cancelorder_put_with_http_info(request_cancel_order)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrderSuccess>
@@ -59,7 +65,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **x_api_key** | **String** | トークン発行メソッドで取得した文字列 |  |
 | **request_cancel_order** | [**RequestCancelOrder**](RequestCancelOrder.md) |  |  |
 
 ### Return type
@@ -68,7 +73,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -78,7 +83,7 @@ No authorization required
 
 ## sendoder_future_post
 
-> <OrderSuccess> sendoder_future_post(x_api_key, request_send_order_deriv_future)
+> <OrderSuccess> sendoder_future_post(request_send_order_deriv_future)
 
 注文発注（先物）
 
@@ -89,14 +94,20 @@ No authorization required
 ```ruby
 require 'time'
 require 'kabustation_client'
+# setup authorization
+KabustationClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
 
 api_instance = KabustationClient::OrderApi.new
-x_api_key = 'x_api_key_example' # String | トークン発行メソッドで取得した文字列
 request_send_order_deriv_future = KabustationClient::RequestSendOrderDerivFuture.new({password: 'xxxxxx', symbol: '165120019', exchange: 37, trade_type: 37, time_in_force: 37, side: 'side_example', qty: 37, front_order_type: 37, price: 3.56, expire_day: 37}) # RequestSendOrderDerivFuture | 
 
 begin
   # 注文発注（先物）
-  result = api_instance.sendoder_future_post(x_api_key, request_send_order_deriv_future)
+  result = api_instance.sendoder_future_post(request_send_order_deriv_future)
   p result
 rescue KabustationClient::ApiError => e
   puts "Error when calling OrderApi->sendoder_future_post: #{e}"
@@ -107,12 +118,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OrderSuccess>, Integer, Hash)> sendoder_future_post_with_http_info(x_api_key, request_send_order_deriv_future)
+> <Array(<OrderSuccess>, Integer, Hash)> sendoder_future_post_with_http_info(request_send_order_deriv_future)
 
 ```ruby
 begin
   # 注文発注（先物）
-  data, status_code, headers = api_instance.sendoder_future_post_with_http_info(x_api_key, request_send_order_deriv_future)
+  data, status_code, headers = api_instance.sendoder_future_post_with_http_info(request_send_order_deriv_future)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrderSuccess>
@@ -125,7 +136,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **x_api_key** | **String** | トークン発行メソッドで取得した文字列 |  |
 | **request_send_order_deriv_future** | [**RequestSendOrderDerivFuture**](RequestSendOrderDerivFuture.md) |  |  |
 
 ### Return type
@@ -134,7 +144,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -144,7 +154,7 @@ No authorization required
 
 ## sendorder_option_post
 
-> <OrderSuccess> sendorder_option_post(x_api_key, request_send_order_deriv_option)
+> <OrderSuccess> sendorder_option_post(request_send_order_deriv_option)
 
 注文発注（オプション）
 
@@ -155,14 +165,20 @@ No authorization required
 ```ruby
 require 'time'
 require 'kabustation_client'
+# setup authorization
+KabustationClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
 
 api_instance = KabustationClient::OrderApi.new
-x_api_key = 'x_api_key_example' # String | トークン発行メソッドで取得した文字列
 request_send_order_deriv_option = KabustationClient::RequestSendOrderDerivOption.new({password: 'password_example', symbol: 'symbol_example', exchange: 37, trade_type: 37, time_in_force: 37, side: 'side_example', qty: 37, front_order_type: 37, price: 3.56, expire_day: 37}) # RequestSendOrderDerivOption | 
 
 begin
   # 注文発注（オプション）
-  result = api_instance.sendorder_option_post(x_api_key, request_send_order_deriv_option)
+  result = api_instance.sendorder_option_post(request_send_order_deriv_option)
   p result
 rescue KabustationClient::ApiError => e
   puts "Error when calling OrderApi->sendorder_option_post: #{e}"
@@ -173,12 +189,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OrderSuccess>, Integer, Hash)> sendorder_option_post_with_http_info(x_api_key, request_send_order_deriv_option)
+> <Array(<OrderSuccess>, Integer, Hash)> sendorder_option_post_with_http_info(request_send_order_deriv_option)
 
 ```ruby
 begin
   # 注文発注（オプション）
-  data, status_code, headers = api_instance.sendorder_option_post_with_http_info(x_api_key, request_send_order_deriv_option)
+  data, status_code, headers = api_instance.sendorder_option_post_with_http_info(request_send_order_deriv_option)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrderSuccess>
@@ -191,7 +207,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **x_api_key** | **String** | トークン発行メソッドで取得した文字列 |  |
 | **request_send_order_deriv_option** | [**RequestSendOrderDerivOption**](RequestSendOrderDerivOption.md) |  |  |
 
 ### Return type
@@ -200,7 +215,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -210,7 +225,7 @@ No authorization required
 
 ## sendorder_post
 
-> <OrderSuccess> sendorder_post(x_api_key, request_send_order)
+> <OrderSuccess> sendorder_post(request_send_order)
 
 注文発注（現物・信用）
 
@@ -221,14 +236,20 @@ No authorization required
 ```ruby
 require 'time'
 require 'kabustation_client'
+# setup authorization
+KabustationClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
 
 api_instance = KabustationClient::OrderApi.new
-x_api_key = 'x_api_key_example' # String | トークン発行メソッドで取得した文字列
 request_send_order = KabustationClient::RequestSendOrder.new({password: 'password_example', symbol: 'symbol_example', exchange: 37, security_type: 37, side: 'side_example', cash_margin: 37, deliv_type: 37, account_type: 37, qty: 37, front_order_type: 37, price: 3.56, expire_day: 37}) # RequestSendOrder | 
 
 begin
   # 注文発注（現物・信用）
-  result = api_instance.sendorder_post(x_api_key, request_send_order)
+  result = api_instance.sendorder_post(request_send_order)
   p result
 rescue KabustationClient::ApiError => e
   puts "Error when calling OrderApi->sendorder_post: #{e}"
@@ -239,12 +260,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OrderSuccess>, Integer, Hash)> sendorder_post_with_http_info(x_api_key, request_send_order)
+> <Array(<OrderSuccess>, Integer, Hash)> sendorder_post_with_http_info(request_send_order)
 
 ```ruby
 begin
   # 注文発注（現物・信用）
-  data, status_code, headers = api_instance.sendorder_post_with_http_info(x_api_key, request_send_order)
+  data, status_code, headers = api_instance.sendorder_post_with_http_info(request_send_order)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrderSuccess>
@@ -257,7 +278,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **x_api_key** | **String** | トークン発行メソッドで取得した文字列 |  |
 | **request_send_order** | [**RequestSendOrder**](RequestSendOrder.md) |  |  |
 
 ### Return type
@@ -266,7 +286,7 @@ end
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

@@ -21,28 +21,22 @@ module KabustationClient
     end
     # 銘柄登録
     # PUSH配信する銘柄を登録します。<br> API登録銘柄リストを開くには、kabuステーションAPIインジケーターを右クリックし「API登録銘柄リスト」を選択してください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_register [RequestRegister] 登録する銘柄のリスト
     # @param [Hash] opts the optional parameters
     # @return [RegistSuccess]
-    def register_put(x_api_key, request_register, opts = {})
-      data, _status_code, _headers = register_put_with_http_info(x_api_key, request_register, opts)
+    def register_put(request_register, opts = {})
+      data, _status_code, _headers = register_put_with_http_info(request_register, opts)
       data
     end
 
     # 銘柄登録
     # PUSH配信する銘柄を登録します。&lt;br&gt; API登録銘柄リストを開くには、kabuステーションAPIインジケーターを右クリックし「API登録銘柄リスト」を選択してください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_register [RequestRegister] 登録する銘柄のリスト
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistSuccess, Integer, Hash)>] RegistSuccess data, response status code and response headers
-    def register_put_with_http_info(x_api_key, request_register, opts = {})
+    def register_put_with_http_info(request_register, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegisterApi.register_put ...'
-      end
-      # verify the required parameter 'x_api_key' is set
-      if @api_client.config.client_side_validation && x_api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_key' when calling RegisterApi.register_put"
       end
       # verify the required parameter 'request_register' is set
       if @api_client.config.client_side_validation && request_register.nil?
@@ -63,7 +57,6 @@ module KabustationClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'X-API-KEY'] = x_api_key
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -75,7 +68,7 @@ module KabustationClient
       return_type = opts[:debug_return_type] || 'RegistSuccess'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RegisterApi.register_put",
@@ -96,26 +89,20 @@ module KabustationClient
 
     # 銘柄登録全解除
     # API登録銘柄リストに登録されている銘柄をすべて解除します
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param [Hash] opts the optional parameters
     # @return [UnregisterAllSuccess]
-    def unregister_all_put(x_api_key, opts = {})
-      data, _status_code, _headers = unregister_all_put_with_http_info(x_api_key, opts)
+    def unregister_all_put(opts = {})
+      data, _status_code, _headers = unregister_all_put_with_http_info(opts)
       data
     end
 
     # 銘柄登録全解除
     # API登録銘柄リストに登録されている銘柄をすべて解除します
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param [Hash] opts the optional parameters
     # @return [Array<(UnregisterAllSuccess, Integer, Hash)>] UnregisterAllSuccess data, response status code and response headers
-    def unregister_all_put_with_http_info(x_api_key, opts = {})
+    def unregister_all_put_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegisterApi.unregister_all_put ...'
-      end
-      # verify the required parameter 'x_api_key' is set
-      if @api_client.config.client_side_validation && x_api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_key' when calling RegisterApi.unregister_all_put"
       end
       # resource path
       local_var_path = '/unregister/all'
@@ -127,7 +114,6 @@ module KabustationClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      header_params[:'X-API-KEY'] = x_api_key
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -139,7 +125,7 @@ module KabustationClient
       return_type = opts[:debug_return_type] || 'UnregisterAllSuccess'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RegisterApi.unregister_all_put",
@@ -160,28 +146,22 @@ module KabustationClient
 
     # 銘柄登録解除
     # API登録銘柄リストに登録されている銘柄を解除します
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_unregister [RequestUnregister] 登録解除する銘柄のリスト
     # @param [Hash] opts the optional parameters
     # @return [RegistSuccess]
-    def unregister_put(x_api_key, request_unregister, opts = {})
-      data, _status_code, _headers = unregister_put_with_http_info(x_api_key, request_unregister, opts)
+    def unregister_put(request_unregister, opts = {})
+      data, _status_code, _headers = unregister_put_with_http_info(request_unregister, opts)
       data
     end
 
     # 銘柄登録解除
     # API登録銘柄リストに登録されている銘柄を解除します
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_unregister [RequestUnregister] 登録解除する銘柄のリスト
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistSuccess, Integer, Hash)>] RegistSuccess data, response status code and response headers
-    def unregister_put_with_http_info(x_api_key, request_unregister, opts = {})
+    def unregister_put_with_http_info(request_unregister, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegisterApi.unregister_put ...'
-      end
-      # verify the required parameter 'x_api_key' is set
-      if @api_client.config.client_side_validation && x_api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_key' when calling RegisterApi.unregister_put"
       end
       # verify the required parameter 'request_unregister' is set
       if @api_client.config.client_side_validation && request_unregister.nil?
@@ -202,7 +182,6 @@ module KabustationClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'X-API-KEY'] = x_api_key
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -214,7 +193,7 @@ module KabustationClient
       return_type = opts[:debug_return_type] || 'RegistSuccess'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"RegisterApi.unregister_put",

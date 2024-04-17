@@ -21,28 +21,22 @@ module KabustationClient
     end
     # 注文取消
     # 注文を取消します
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_cancel_order [RequestCancelOrder] 
     # @param [Hash] opts the optional parameters
     # @return [OrderSuccess]
-    def cancelorder_put(x_api_key, request_cancel_order, opts = {})
-      data, _status_code, _headers = cancelorder_put_with_http_info(x_api_key, request_cancel_order, opts)
+    def cancelorder_put(request_cancel_order, opts = {})
+      data, _status_code, _headers = cancelorder_put_with_http_info(request_cancel_order, opts)
       data
     end
 
     # 注文取消
     # 注文を取消します
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_cancel_order [RequestCancelOrder] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderSuccess, Integer, Hash)>] OrderSuccess data, response status code and response headers
-    def cancelorder_put_with_http_info(x_api_key, request_cancel_order, opts = {})
+    def cancelorder_put_with_http_info(request_cancel_order, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrderApi.cancelorder_put ...'
-      end
-      # verify the required parameter 'x_api_key' is set
-      if @api_client.config.client_side_validation && x_api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_key' when calling OrderApi.cancelorder_put"
       end
       # verify the required parameter 'request_cancel_order' is set
       if @api_client.config.client_side_validation && request_cancel_order.nil?
@@ -63,7 +57,6 @@ module KabustationClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'X-API-KEY'] = x_api_key
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -75,7 +68,7 @@ module KabustationClient
       return_type = opts[:debug_return_type] || 'OrderSuccess'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"OrderApi.cancelorder_put",
@@ -96,28 +89,22 @@ module KabustationClient
 
     # 注文発注（先物）
     # 先物銘柄の注文を発注します。<br> 同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_send_order_deriv_future [RequestSendOrderDerivFuture] 
     # @param [Hash] opts the optional parameters
     # @return [OrderSuccess]
-    def sendoder_future_post(x_api_key, request_send_order_deriv_future, opts = {})
-      data, _status_code, _headers = sendoder_future_post_with_http_info(x_api_key, request_send_order_deriv_future, opts)
+    def sendoder_future_post(request_send_order_deriv_future, opts = {})
+      data, _status_code, _headers = sendoder_future_post_with_http_info(request_send_order_deriv_future, opts)
       data
     end
 
     # 注文発注（先物）
     # 先物銘柄の注文を発注します。&lt;br&gt; 同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_send_order_deriv_future [RequestSendOrderDerivFuture] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderSuccess, Integer, Hash)>] OrderSuccess data, response status code and response headers
-    def sendoder_future_post_with_http_info(x_api_key, request_send_order_deriv_future, opts = {})
+    def sendoder_future_post_with_http_info(request_send_order_deriv_future, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrderApi.sendoder_future_post ...'
-      end
-      # verify the required parameter 'x_api_key' is set
-      if @api_client.config.client_side_validation && x_api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_key' when calling OrderApi.sendoder_future_post"
       end
       # verify the required parameter 'request_send_order_deriv_future' is set
       if @api_client.config.client_side_validation && request_send_order_deriv_future.nil?
@@ -138,7 +125,6 @@ module KabustationClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'X-API-KEY'] = x_api_key
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -150,7 +136,7 @@ module KabustationClient
       return_type = opts[:debug_return_type] || 'OrderSuccess'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"OrderApi.sendoder_future_post",
@@ -171,28 +157,22 @@ module KabustationClient
 
     # 注文発注（オプション）
     # オプション銘柄の注文を発注します。<br> 同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_send_order_deriv_option [RequestSendOrderDerivOption] 
     # @param [Hash] opts the optional parameters
     # @return [OrderSuccess]
-    def sendorder_option_post(x_api_key, request_send_order_deriv_option, opts = {})
-      data, _status_code, _headers = sendorder_option_post_with_http_info(x_api_key, request_send_order_deriv_option, opts)
+    def sendorder_option_post(request_send_order_deriv_option, opts = {})
+      data, _status_code, _headers = sendorder_option_post_with_http_info(request_send_order_deriv_option, opts)
       data
     end
 
     # 注文発注（オプション）
     # オプション銘柄の注文を発注します。&lt;br&gt; 同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_send_order_deriv_option [RequestSendOrderDerivOption] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderSuccess, Integer, Hash)>] OrderSuccess data, response status code and response headers
-    def sendorder_option_post_with_http_info(x_api_key, request_send_order_deriv_option, opts = {})
+    def sendorder_option_post_with_http_info(request_send_order_deriv_option, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrderApi.sendorder_option_post ...'
-      end
-      # verify the required parameter 'x_api_key' is set
-      if @api_client.config.client_side_validation && x_api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_key' when calling OrderApi.sendorder_option_post"
       end
       # verify the required parameter 'request_send_order_deriv_option' is set
       if @api_client.config.client_side_validation && request_send_order_deriv_option.nil?
@@ -213,7 +193,6 @@ module KabustationClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'X-API-KEY'] = x_api_key
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -225,7 +204,7 @@ module KabustationClient
       return_type = opts[:debug_return_type] || 'OrderSuccess'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"OrderApi.sendorder_option_post",
@@ -246,28 +225,22 @@ module KabustationClient
 
     # 注文発注（現物・信用）
     # 注文を発注します。<br> 同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_send_order [RequestSendOrder] 
     # @param [Hash] opts the optional parameters
     # @return [OrderSuccess]
-    def sendorder_post(x_api_key, request_send_order, opts = {})
-      data, _status_code, _headers = sendorder_post_with_http_info(x_api_key, request_send_order, opts)
+    def sendorder_post(request_send_order, opts = {})
+      data, _status_code, _headers = sendorder_post_with_http_info(request_send_order, opts)
       data
     end
 
     # 注文発注（現物・信用）
     # 注文を発注します。&lt;br&gt; 同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-    # @param x_api_key [String] トークン発行メソッドで取得した文字列
     # @param request_send_order [RequestSendOrder] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderSuccess, Integer, Hash)>] OrderSuccess data, response status code and response headers
-    def sendorder_post_with_http_info(x_api_key, request_send_order, opts = {})
+    def sendorder_post_with_http_info(request_send_order, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrderApi.sendorder_post ...'
-      end
-      # verify the required parameter 'x_api_key' is set
-      if @api_client.config.client_side_validation && x_api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_key' when calling OrderApi.sendorder_post"
       end
       # verify the required parameter 'request_send_order' is set
       if @api_client.config.client_side_validation && request_send_order.nil?
@@ -288,7 +261,6 @@ module KabustationClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
-      header_params[:'X-API-KEY'] = x_api_key
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -300,7 +272,7 @@ module KabustationClient
       return_type = opts[:debug_return_type] || 'OrderSuccess'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"OrderApi.sendorder_post",

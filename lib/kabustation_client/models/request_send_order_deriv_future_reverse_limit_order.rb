@@ -25,7 +25,7 @@ module KabustationClient
     # ヒット後執行条件<br> ※未設定の場合はエラーになります。<br> ※日通の注文で2以外が指定された場合はエラーになります。<br> ※日中、夜間の注文で1、2以外が指定された場合はエラーになります。<br> ※逆指値（成行）で有効期間条件(TimeInForce)にFAK以外を指定された場合はエラーになります。<br> ※逆指値（指値）で有効期間条件(TimeInForce)にFAS以外を指定された場合はエラーになります。 <table>   <thead>       <tr>           <th>定義値</th>           <th>説明</th>       </tr>   </thead>   <tbody>     <tr>       <td>1</td>       <td>成行</td>     </tr>     <tr>       <td>2</td>       <td>指値</td>     </tr>   </tbody> </table>
     attr_accessor :after_hit_order_type
 
-    # ヒット後注文価格<br> ※未設定の場合はエラーになります。<br> ※数字以外が設定された場合はエラーになります。<br><br> ヒット後執行条件に従い、下記のようにヒット後注文価格を設定してください。 <table>   <thead>       <tr>           <th>ヒット後執行条件</th>           <th>設定価格</th>       </tr>   </thead>   <tbody>     <tr>       <td>成行</td>       <td>0</td>     </tr>     <tr>       <td>指値</td>       <td>指値の単価</td>     </tr>   </tbody> </table>
+    # ヒット後注文価格<br> ※未設定の場合はエラーになります。<br> ※数字以外が設定された場合はエラーになります。<br><br> ヒット後執行条件に従い、下記のようにヒット後注文価格を設定してください。  <table>   <thead>       <tr>           <th>ヒット後執行条件</th>           <th>設定価格</th>       </tr>   </thead>   <tbody>     <tr>       <td>成行</td>       <td>0</td>     </tr>     <tr>       <td>指値</td>       <td>指値の単価</td>     </tr>   </tbody> </table>
     attr_accessor :after_hit_price
 
     # Attribute mapping from ruby-style variable name to JSON key.

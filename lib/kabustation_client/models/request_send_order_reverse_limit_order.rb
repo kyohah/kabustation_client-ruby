@@ -28,7 +28,7 @@ module KabustationClient
     # ヒット後執行条件<br> ※未設定の場合はエラーになります。<br> ※1、2、3以外が指定された場合はエラーになります。 <table>   <thead>       <tr>           <th>定義値</th>           <th>説明</th>       </tr>   </thead>   <tbody>     <tr>       <td>1</td>       <td>成行</td>     </tr>     <tr>       <td>2</td>       <td>指値</td>     </tr>     <tr>       <td>3</td>       <td>不成</td>     </tr>   </tbody> </table>
     attr_accessor :after_hit_order_type
 
-    # ヒット後注文価格<br> ※未設定の場合はエラーになります。<br> ※数字以外が設定された場合はエラーになります。<br><br> ヒット後執行条件に従い、下記のようにヒット後注文価格を設定してください。 <table>   <thead>       <tr>           <th>ヒット後執行条件</th>           <th>設定価格</th>       </tr>   </thead>   <tbody>     <tr>       <td>成行</td>       <td>0</td>     </tr>     <tr>       <td>指値</td>       <td>指値の単価</td>     </tr>     <tr>       <td>不成</td>       <td>不成の単価</td>     </tr>   </tbody> </table>
+    # ヒット後注文価格<br> ※未設定の場合はエラーになります。<br> ※数字以外が設定された場合はエラーになります。<br><br> ヒット後執行条件に従い、下記のようにヒット後注文価格を設定してください。  <table>   <thead>       <tr>           <th>ヒット後執行条件</th>           <th>設定価格</th>       </tr>   </thead>   <tbody>     <tr>       <td>成行</td>       <td>0</td>     </tr>     <tr>       <td>指値</td>       <td>指値の単価</td>     </tr>     <tr>       <td>不成</td>       <td>不成の単価</td>     </tr>   </tbody> </table>
     attr_accessor :after_hit_price
 
     # Attribute mapping from ruby-style variable name to JSON key.
