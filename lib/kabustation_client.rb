@@ -93,6 +93,9 @@ require 'kabustation_client/api/order_api'
 require 'kabustation_client/api/register_api'
 require 'kabustation_client/api/wallet_api'
 
+# WebSocket
+require 'kabustation_client/push_client'
+
 module KabustationClient
   class << self
     # Customize default settings for the SDK using block.
